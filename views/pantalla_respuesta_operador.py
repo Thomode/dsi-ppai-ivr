@@ -1,23 +1,25 @@
-from tkinter import Frame, Button, Label
+import tkinter as tk
 
-class PantallaRespuestaOperador(Frame):
-    def __init__(self, master=None):
-        super().__init__(master)
+
+class PantallaRespuestaOperador(tk.Tk):
+    def __init__(self):
+        super().__init__()
         
-        self.master = master
-        self.pack()
+        self.ventana_ancho = 800
+        self.ventana_alto = 600
+
+        self.title("Pantalla Respuesta del Operador")
+        self.geometry(self.centrar_ventana(self.ventana_ancho, self.ventana_alto))
         self.init_ui()
+    
+    def centrar_ventana(self, ventana_ancho, ventana_alto):
+        ventana_x = self.winfo_screenwidth() // 2 - ventana_ancho // 2
+        ventana_y = self.winfo_screenheight() // 2 - ventana_alto // 2
+
+        return f'{ventana_ancho}x{ventana_alto}+{ventana_x}+{ventana_y}'
 
     def init_ui(self):
-        self.master.title("PantallaRespuestaOperador")
-        self.label = Label(self, text="Hola")
-        self.label.pack()
-
-        self.button1 = Button(self, text='Aceptar')
-        self.button1.pack(side='top')
-        
-        self.button1 = Button(self, text='Cancelar')
-        self.button1.pack(side='top')
+        pass
 
     def mostrarDatosLLamada(self):
         pass
